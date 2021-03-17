@@ -1,0 +1,17 @@
+﻿@page "/people"
+@using ComponentCommunication.Data
+
+@inject AppState _appstate 
+
+
+@* Add the "AddPerson" and "PeopleList" components
+    "AddPerson" should send a call back of OnAddPeople="_appstate.AddToPeopleList"
+    "PeopleList" should be called with the parameter "_appstate.PeopleList"*@
+<ComponentCommunication.Pages.RazorComponents.AddPerson OnAddPerson="_appstate.AddToPersonList" />
+<ComponentCommunication.Pages.RazorComponents.PeopleList PersonList="_appstate.peoples" />
+
+
+
+@code {
+
+}

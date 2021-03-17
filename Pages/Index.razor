@@ -1,0 +1,29 @@
+﻿@page "/"
+@using ComponentCommunication.Data
+
+
+@*@inject AppState _appstate 
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+<br />
+
+@_appstate.SelectedColour
+
+<br />
+
+<ComponentCommunication.Pages.RazorComponents.RedComponent/>
+<ComponentCommunication.Pages.RazorComponents.BlueComponent/>
+
+@code {
+    protected override void OnInitialized()
+    {
+        _appstate.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        _appstate.OnChange -= StateHasChanged;
+    }
+}*@

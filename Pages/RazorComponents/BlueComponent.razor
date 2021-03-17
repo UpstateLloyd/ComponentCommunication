@@ -1,0 +1,13 @@
+﻿@inject AppState AppState
+@using ComponentCommunication.Data
+
+<button @onclick="SelectColour">Select Blue</button>
+
+@code {
+
+    void SelectColour()
+    {
+        AppState.SetColour("Blue");
+    }
+
+}

@@ -1,0 +1,24 @@
+﻿@page "/selectcolour" 
+@using ComponentCommunication.Data
+@inject AppState _appstate
+@implements IDisposable
+
+@_appstate.SelectedColour
+
+<ComponentCommunication.Pages.RazorComponents.RedComponent />
+<ComponentCommunication.Pages.RazorComponents.BlueComponent />
+
+@code {
+
+    protected override void OnInitialized()
+    {
+        _appstate.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        _appstate.OnChange -= StateHasChanged;
+    }
+
+}
+

@@ -1,0 +1,29 @@
+﻿@using ComponentCommunication.Models
+
+<h3>PeopleList</h3>
+
+@if (PersonList == null)
+{
+    <p>Loading...</p>
+}
+else
+{   <ul>
+        @foreach (var item in PersonList)
+        {
+            <li>@item.FirstName</li>
+            <li>@item.LastName</li>
+            <li>@item.Email</li>
+        }
+    </ul>
+}
+
+
+@code {
+    [Parameter]
+    public IReadOnlyList<Person> PersonList { get; set; }
+
+    private async Task OnInitializedAsync()
+    {
+
+    }
+}
