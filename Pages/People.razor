@@ -13,5 +13,8 @@
 
 
 @code {
-
+    protected override async Task OnInitializedAsync()
+    {
+        _appstate.GetPersonList();
+    }
 }

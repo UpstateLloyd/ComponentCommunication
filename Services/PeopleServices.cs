@@ -10,16 +10,16 @@ namespace ComponentCommunication.Services
 {
     public class PeopleServices
     {
-        public IDataAccess _data;
+        public IDataAccess _data = new DataAccess();
         public IConfiguration _config;
         public async Task<List<Person>> ListPeople()
         {
             string sql = "SELECT * FROM people";
-            List<Person> people;
 
-            people = await _data.LoadData<Person, dynamic>(sql, new { }, _config.GetConnectionString("default"));
+//            List<Person> people = new List<Person>();
 
-            return people;
+            return await _data.LoadData<Person, dynamic>(sql, new { }, _config.GetConnectionString("default"));
+
         }
         public async Task InsertData(Person person)
         {

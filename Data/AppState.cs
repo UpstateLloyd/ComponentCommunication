@@ -24,8 +24,9 @@ namespace ComponentCommunication.Data
 
         private void NotifyStateChanged() => OnChange?.Invoke();
 
-        public List<Person> peoples { get; set; }
-        public PeopleServices _peopleservices { get; set; }
+        public List<Person> peoples = new List<Person>();
+
+        public PeopleServices _peopleservices = new PeopleServices();
 
         public void GetPersonList()
         {
