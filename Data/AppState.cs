@@ -10,7 +10,13 @@ namespace ComponentCommunication.Data
 {
     public class AppState
     {
+        public AppState(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         public string SelectedColour { get; private set; }
+        public IConfiguration Configuration { get; }
 
         public event Action OnChange;
 
@@ -24,7 +30,7 @@ namespace ComponentCommunication.Data
 
         private void NotifyStateChanged() => OnChange?.Invoke();
 
-        public List<Person> peoples = new List<Person>();
+        public List<Person> peoples = new List<Person>();        
 
         public PeopleServices _peopleservices = new PeopleServices();
 

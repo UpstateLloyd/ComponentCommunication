@@ -12,14 +12,20 @@ namespace ComponentCommunication.Services
     public class PeopleServices
     {
         public IDataAccess _data = new DataAccess();
+
         public IConfiguration _config { get; }
+
+        //public PeopleServices(IConfiguration config)
+        //{
+        //    _config = config;
+        //}
         public async Task<List<Person>> ListPeople()
         {
             string sql = "SELECT * FROM people";
 
             //List<Person> people = new List<Person>();
 
-            return await _data.LoadData<Person, dynamic>(sql, new { }, "Server=localhost;Port=3306;database=ytdemo;user id=upstatedashadmin;password=LH85upst4t3d4sh!");// Startup.Configuration.GetConnectionString("default"));
+            return await _data.LoadData<Person, dynamic>(sql, new { }, "Server=localhost;Port=3306;database=ytdemo;user id=upstatedashadmin;password=LH85upst4t3d4sh!");//_config.GetConnectionString("default"));
 
         }
         public async Task InsertData(Person person)
@@ -31,7 +37,7 @@ namespace ComponentCommunication.Services
                 FirstName = person.FirstName,
                 LastName = person.LastName,
                 Email = person.Email
-            }, "Server=localhost;Port=3306;database=ytdemo;user id=upstatedashadmin;password=LH85upst4t3d4sh!");// _config.GetConnectionString("default"));
+            }, "Server=localhost;Port=3306;database=ytdemo;user id=upstatedashadmin;password=LH85upst4t3d4sh!");
 
 
         }
